@@ -1,19 +1,31 @@
 var checked = [];
 var popupWindow = null;
+var key = null;
+var value = null;
 
-function popup() {
-
-}
 function getColumnValues() {
 	for (var checkedColumn in checked) {
-		window['output'] = document.getElementById('popup');
-		window.open('input.html');
-		
-		var key = prompt("Enter Key Name of " + checked[checkedColumn], "key");
-		var value = prompt("Enter Value Name of " + checked[checkedColumn], "value");
+		$("#keyField > span").html("Key for " + checked[checkedColumn] + " : ");
+		$("#valueField > span").html("Value for " + checked[checkedColumn] + " : ");
 
+		$("#myModal").modal();
+		$("#myModal").on('hidden.bs.modal', function() {
+
+			key = $("#keyField > input").val();
+			value = $("#valueField > input").val();
+
+			if (key == "") key = "key";
+			if (value == "") value = "value";
+
+			$("#keyField > input").val("");
+			$("#valueField > input").val("");
+
+			console.log(key);
+			console.log(value);
+		});
 	}
 }
+
 
 $(document).ready(function(){
 	// $(".checkbox").each(function() {
@@ -30,7 +42,6 @@ $(document).ready(function(){
 		if (checked.length > 0) {
 			getColumnValues();
 		}
+		checked = [];
 	});
-
-	$("#genTable")
 });

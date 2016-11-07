@@ -5,9 +5,12 @@
 	<link rel="stylesheet" type="text/css" href="/treant-js/Treant.css">
 	<link rel="stylesheet" type="text/css" href="/common/example.css">
 	<link rel="stylesheet" type="text/css" href="/json-viewer/jquery.json-viewer.css">
+	<link rel="stylesheet" type="text/css" href="/common/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/common/bootstrap/css/bootstrap-theme.min.css">
 </head>
 <body>
 	<script type="text/javascript" src="/common/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="/common/bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/treant-js/Treant.js"></script>
 	<script type="text/javascript" src="/treant-js/vendor/raphael.js"></script>
 	<script type="text/javascript" src="/common/config.js"></script>
@@ -18,9 +21,27 @@
 		$("#json-viewer").jsonViewer(jsonContent, {collapsed: true});
 	</script>
 	</pre>
-	<div id="popup">
-		
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Input key, value</h4>
+				</div>
+				<div class="modal-body">
+					<p id="keyField"><span id="hahaha">asdfasf</span><input type="text" name="key" /></p>
+					<p id="valueField"><span></span><input type="text" name="value" /></p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
 	</div>
+
 	<button type="button" id ="tmp">선택완료</button>
 	<button type="button" id ="genTable">Generate!</button>
 	<script type="text/javascript" src="/test.js"></script>
